@@ -1,0 +1,31 @@
+$ node build.mjs && PATCH_IS_VAPOR_SLOT=1 node --import ./register.mjs run.mjs
+compiled with @vue/compiler-sfc 3.6.0-rc.10
+vue 3.6.0-rc.10 · nuxt-nightly@5.0.0-2610091554-2b103c9 (isVaporSlot patched to rawVaporSlotKey) · happy-dom 20.14.5 · node v24.19.0
+
+[vapor]
+  slot carries Vue rawVaporSlotKey: true
+  slot carries __vapor / __vs: false
+  nuxt isVaporSlot(slot): true
+  <Title> title passed to useHead: null
+  <Style> textContent passed to useHead: null
+  <NoScript> textContent passed to useHead: null
+  <ClientOnly> child rendered: true
+  <ClientOnly> child class: null
+  <ClientOnly> scoped slot props received: "{}"
+  Nuxt dev diagnostics emitted: ["NUXT_E4021","NUXT_E6002","NUXT_E6004"]
+
+[vdom]
+  slot carries Vue rawVaporSlotKey: false
+  slot carries __vapor / __vs: false
+  nuxt isVaporSlot(slot): false
+  <Title> title passed to useHead: "Expected title"
+  <Style> textContent passed to useHead: ".expected { color: red }"
+  <NoScript> textContent passed to useHead: "expected noscript"
+  <ClientOnly> child rendered: true
+  <ClientOnly> child class: "forwarded-class"
+  <ClientOnly> scoped slot props received: ""
+  Nuxt dev diagnostics emitted: []
+
+control (vdom) arm as expected: true
+defect absent: Nuxt isVaporSlot() recognises the Vapor slot
+repro:patched run2 exit=0

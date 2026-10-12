@@ -1,0 +1,18 @@
+{
+  "name": "nuxt-vapor-slot-detect",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "build": "node build.mjs",
+    "repro": "node build.mjs && node --import ./register.mjs run.mjs",
+    "repro:stable": "node build.mjs && NUXT_PKG=nuxt-stable node --import ./register.mjs run.mjs",
+    "repro:patched": "node build.mjs && PATCH_IS_VAPOR_SLOT=1 node --import ./register.mjs run.mjs"
+  },
+  "dependencies": {
+    "nuxt": "npm:nuxt-nightly@5.0.0-2610091554-2b103c9",
+    "nuxt-stable": "npm:nuxt@4.6.1",
+    "vue": "3.6.0-rc.10",
+    "@vue/compiler-sfc": "3.6.0-rc.10",
+    "happy-dom": "20.14.5"
+  }
+}
